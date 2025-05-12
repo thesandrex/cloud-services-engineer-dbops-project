@@ -1,14 +1,16 @@
-version: '3.8'
 services:
   postgres:
     image: postgres:16
     container_name: postgres
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: puser
+      POSTGRES_PASSWORD: ppass
       POSTGRES_DB: store_default
     ports:
       - "5432:5432"
     volumes:
-      - /opt/docker/postgres/:/var/lib/postgresql/data
+      - dbops_postgres:/var/lib/postgresql/data
     restart: unless-stopped
+
+volumes:
+  dbops_postgres:

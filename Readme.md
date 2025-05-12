@@ -32,6 +32,7 @@
 
 5. Запрос на количество сосисок:
     ```sql
+    EXPLAIN ANALYZE
     SELECT o.date_created, SUM(op.quantity)
     FROM orders AS o
     JOIN order_product AS op ON o.id = op.order_id

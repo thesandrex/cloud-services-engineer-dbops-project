@@ -32,8 +32,8 @@ jobs:
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_URL: jdbc:postgresql://${{ secrets.DB_HOST }}:${{ secrets.DB_PORT }}/${{ secrets.DB_NAME }}
       run: |
-        flyway -user=$DB_USERNAME -password=$DB_PASSWORD -url=$DB_URL info
-        flyway -user=$DB_USERNAME -password=$DB_PASSWORD -url=$DB_URL migrate
+        flyway -user=$DB_USERNAME -password=$DB_PASSWORD -url=$DB_URL -locations=filesystem:./migrations info
+        flyway -user=$DB_USERNAME -password=$DB_PASSWORD -url=$DB_URL -locations=filesystem:./migrations migrate
 
     ### Этот шаг оставьте без изменений
     - name: Download and setup autotests binaries

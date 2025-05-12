@@ -23,6 +23,8 @@
     ```sql
     GRANT ALL PRIVILEGES ON DATABASE store TO test_user;
     \c store
+    GRANT ALL PRIVILEGES ON SCHEMA public TO test_user;
+    ALTER SCHEMA public OWNER TO test_user;
     GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO test_user;
     GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO test_user;
     GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO test_user;
